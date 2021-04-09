@@ -30,7 +30,6 @@ reg_name <- substr(neigborhood_label, 15, nchar(neigborhood_label))
 # Where to safe the outcome
 dir.create("../../gen")
 dir.create("../../gen/analysis")
-dir.create("../../gen/analysis/output")
 
 #The regression analysis
 stargazer(mdl_airbnb, 
