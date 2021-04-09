@@ -13,19 +13,19 @@ airbnb <- airbnb %>%
 
 airbnb <- dummy_cols(airbnb, select_columns = "covid")
 
-#creating a dummy for neighbourhood
-airbnb <- dummy_cols(airbnb, select_columns = "neighbourhood")
+#creating a dummy for neighborhood
+airbnb <- dummy_cols(airbnb, select_columns = "neighborhood")
 
 #creating data sets for the linear analysis
-neighbourhood <- airbnb[10:31]
+neighborhood <- airbnb[10:31]
 covid <- airbnb[8:9]
 
 #creating the linear model
-mdl_airbnb <- lm(num_reviews ~ month + covid + neighbourhood, data=airbnb)
+mdl_airbnb <- lm(num_reviews ~ month + covid + neighborhood, data=airbnb)
 
-#remove neighbourhood part from the labels in the table. 
-neigbourhood_label <- (colnames(neighbourhood))
-reg_name <- substr(neigbourhood_label, 15, nchar(neigbourhood_label))
+#remove neighborhood part from the labels in the table. 
+neigborhood_label <- (colnames(neighborhood))
+reg_name <- substr(neigborhood_label, 15, nchar(neigborhood_label))
 
 # Where to safe the outcome
 dir.create("../../gen")
