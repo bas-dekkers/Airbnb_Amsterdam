@@ -1,4 +1,3 @@
-#reading input
 airbnb <- read.csv("../../data/data.csv", sep=",")
 
 #install.packages("fastDummies")
@@ -6,11 +5,11 @@ library(fastDummies)
 library(dplyr)
 library(stargazer)
 
-#creating a dummy for covid yes or no
+#creating a dummy for covid 1 in covid 0 before covid
 class(airbnb$date)
 airbnb$date <- as.Date(airbnb$date)
 airbnb <- airbnb %>% 
-            mutate(covid = ifelse(date >= "2020-03-01", 1, 0))
+  mutate(covid = ifelse(date >= "2020-03-01", 1, 0))
 
 airbnb <- dummy_cols(airbnb, select_columns = "covid")
 
